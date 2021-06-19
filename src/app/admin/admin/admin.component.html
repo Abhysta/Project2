@@ -1,0 +1,76 @@
+<ng-container>
+    <mat-toolbar class="example-header">
+        <button *ngIf="deviceXs">
+            <mat-icon *ngIf="deviceXs" (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+            <button mat-button *ngIf="!deviceXs" routerLink="home">Home</button>
+            <button mat-button *ngIf="!deviceXs" routerLink="serendipity">Serendipity</button>
+            <button mat-button *ngIf="!deviceXs" routerLink="step">Tata Cara</button>
+            <button mat-button *ngIf="!deviceXs" routerLink="about">Tentang</button>
+            <div class="uk-width-expand"></div>
+            <mat-icon *ngIf="deviceXs">eco</mat-icon>
+            <button mat-raised-button color="accent" *ngIf="!deviceXs" routerLink='/login'>Logout</button>
+            
+    </mat-toolbar>
+    
+    <mat-sidenav-container class="admin-container">
+        
+        <mat-sidenav 
+        #sidenav 
+        mode="side"
+        [position]="'start'" 
+        [opened] = 'false' 
+        class="sidenav-left"
+        [fixedInViewport]="true" 
+        [fixedTopGap]="60"
+        [fixedBottomGap]="0">
+      
+        <mat-nav-list>
+              <mat-list-item routerLink="home">
+                  <mat-icon matListIcon>home</mat-icon>
+                  <h3 matLine>Home</h3>
+              </mat-list-item>
+    
+              <mat-list-item routerLink="serendipity">
+                <mat-icon matListIcon>book</mat-icon>
+                <h3 matLine>Serendipity</h3>
+            </mat-list-item>
+    
+            <mat-list-item routerLink="step">
+                <mat-icon matListIcon>rule</mat-icon>
+                <h3 matLine>Tata Cara</h3>
+            </mat-list-item>
+          
+            <mat-list-item routerLink="about">
+                <mat-icon matListIcon>info</mat-icon>
+                <h3 matLine>Tentang</h3>
+            </mat-list-item>
+    
+            <mat-list-item routerLink="/login">
+                <mat-icon matListIcon>logout</mat-icon>
+                <h3 matLine>Logout</h3>
+            </mat-list-item>
+            
+      
+         </mat-nav-list>
+      
+      
+        </mat-sidenav>
+      
+      <mat-sidenav #sidenav mode="side" [position]="'end'"  class="example-sidenav"
+      [fixedInViewport]="true" [fixedTopGap]="60"
+      [fixedBottomGap]="0">
+      
+         
+      
+      </mat-sidenav>
+      <!--sidenav content-->
+      <mat-sidenav-content style="background-color: rgb(255, 255, 255);">
+      <!--halaman-halaman tampil disini-->
+    
+      <router-outlet></router-outlet>
+    
+    </mat-sidenav-content>
+    <!--end sidenav content-->
+    </mat-sidenav-container> 
+    </ng-container>
