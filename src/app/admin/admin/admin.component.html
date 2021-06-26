@@ -1,15 +1,17 @@
 <ng-container>
     <mat-toolbar class="example-header">
-        <button *ngIf="deviceXs">
-            <mat-icon *ngIf="deviceXs" (click)="sidenav.toggle()">menu</mat-icon>
-        </button>
+            <mat-icon>auto_stories</mat-icon>
+            <span>Serendipity</span>
+            <div class="uk-width-expand"></div>
+            <button *ngIf="deviceXs">
+                <mat-icon *ngIf="deviceXs" (click)="sidenav.toggle()">menu</mat-icon>
+            </button>
             <button mat-button *ngIf="!deviceXs" routerLink="home">Home</button>
             <button mat-button *ngIf="!deviceXs" routerLink="serendipity">Serendipity</button>
             <button mat-button *ngIf="!deviceXs" routerLink="step">Tata Cara</button>
             <button mat-button *ngIf="!deviceXs" routerLink="about">Tentang</button>
-            <div class="uk-width-expand"></div>
-            <mat-icon *ngIf="deviceXs">eco</mat-icon>
-            <button mat-raised-button color="accent" *ngIf="!deviceXs" routerLink='/login'>Logout</button>
+            
+            <button mat-raised-button color="accent" *ngIf="!deviceXs" routerLink="/login">Logout</button>
             
     </mat-toolbar>
     
@@ -18,7 +20,7 @@
         <mat-sidenav 
         #sidenav 
         mode="side"
-        [position]="'start'" 
+        [position]="'end'" 
         [opened] = 'false' 
         class="sidenav-left"
         [fixedInViewport]="true" 
@@ -65,7 +67,7 @@
       
       </mat-sidenav>
       <!--sidenav content-->
-      <mat-sidenav-content style="background-color: rgb(255, 255, 255);">
+      <mat-sidenav-content style=" background-color: rgb(255, 255, 255);">
       <!--halaman-halaman tampil disini-->
     
       <router-outlet></router-outlet>
